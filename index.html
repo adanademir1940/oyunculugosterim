@@ -48,6 +48,40 @@
 
     h1 span { color: var(--gold); }
 
+    .picker { position: relative; margin: 0 0 18px; }
+    .picker label { display: block; margin: 0 0 8px; color: var(--muted); font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .picker select {
+      width: 100%;
+      min-height: 54px;
+      padding: 0 48px 0 18px;
+      border: 1px solid rgba(240, 189, 116, .7);
+      border-radius: 10px;
+      background: rgba(17, 14, 14, .88);
+      color: var(--cream);
+      font: inherit;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      backdrop-filter: blur(8px);
+    }
+    .picker select:focus-visible { outline: 3px solid #ffe1b5; outline-offset: 3px; }
+    .picker option { background: #17120f; color: var(--cream); }
+    .picker::after {
+      position: absolute;
+      right: 20px;
+      bottom: 22px;
+      width: 9px;
+      height: 9px;
+      border-right: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+      transform: rotate(45deg);
+      content: "";
+      pointer-events: none;
+    }
+    .links li[hidden] { display: none; }
+
     .links { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
 
     .links a {
@@ -117,22 +151,41 @@
   <main>
     <h1>Oyunculu <span>Gösterim</span></h1>
 
+    <div class="picker">
+      <label for="city">Şehir seç</label>
+      <select id="city">
+        <option value="">Tüm şehirler</option>
+        <option value="bursa">Bursa</option>
+        <option value="ankara">Ankara</option>
+        <option value="istanbul">İstanbul</option>
+        <option value="balikesir">Balıkesir</option>
+        <option value="izmir">İzmir</option>
+      </select>
+    </div>
+
     <ul class="links">
-      <li><a href="https://biletinial.com/tr-tr/WebLogin?seanceId=18899451&amp;organizerType=1&amp;OrganizerTypeUrl=sinema&amp;lang=tr&amp;a_aid=&amp;a_bid=&amp;cinemaId=13&amp;Region=tr-tr&amp;SiteId=0" target="_blank" rel="noopener noreferrer">
+      <li data-city="bursa"><a href="https://biletinial.com/tr-tr/WebLogin?seanceId=18899451&amp;organizerType=1&amp;OrganizerTypeUrl=sinema&amp;lang=tr&amp;a_aid=&amp;a_bid=&amp;cinemaId=13&amp;Region=tr-tr&amp;SiteId=0" target="_blank" rel="noopener noreferrer">
         <span class="date"><span class="day">13</span><span class="month">Kasım</span><span class="weekday">Cuma</span></span><span class="info"><span class="time">19:20</span><span class="venue">Bursa Cinetech (Zafer Plaza)</span></span><span class="cta">Bilet al ↗</span></a></li>
-      <li><a href="https://www.paribucineverse.com/biletleme/~step~ticket~code~0000000004~session~229689" target="_blank" rel="noopener noreferrer">
+      <li data-city="ankara"><a href="https://www.paribucineverse.com/biletleme/~step~ticket~code~0000000004~session~229689" target="_blank" rel="noopener noreferrer">
         <span class="date"><span class="day">14</span><span class="month">Kasım</span><span class="weekday">Cumartesi</span></span><span class="info"><span class="time">16:10</span><span class="venue">Ankara Paribu Cineverse (Ankamall)</span></span><span class="cta">Bilet al ↗</span></a></li>
-      <li><a href="https://biletinial.com/tr-tr/WebLogin?seanceId=18878715&amp;organizerType=1&amp;OrganizerTypeUrl=sinema&amp;lang=tr&amp;a_aid=&amp;a_bid=&amp;cinemaId=1&amp;Region=tr-tr&amp;SiteId=0" target="_blank" rel="noopener noreferrer">
+      <li data-city="ankara"><a href="https://biletinial.com/tr-tr/WebLogin?seanceId=18878715&amp;organizerType=1&amp;OrganizerTypeUrl=sinema&amp;lang=tr&amp;a_aid=&amp;a_bid=&amp;cinemaId=1&amp;Region=tr-tr&amp;SiteId=0" target="_blank" rel="noopener noreferrer">
         <span class="date"><span class="day">14</span><span class="month">Kasım</span><span class="weekday">Cumartesi</span></span><span class="info"><span class="time">19:00</span><span class="venue">Ankara Prestige (Nata Vega)</span></span><span class="cta">Bilet al ↗</span></a></li>
-      <li><a href="https://biletinial.com/tr-tr/WebLogin?seanceId=18878283&amp;organizerType=1&amp;OrganizerTypeUrl=sinema&amp;lang=tr&amp;a_aid=&amp;a_bid=&amp;cinemaId=5717&amp;Region=tr-tr&amp;SiteId=0" target="_blank" rel="noopener noreferrer">
+      <li data-city="istanbul"><a href="https://biletinial.com/tr-tr/WebLogin?seanceId=18878283&amp;organizerType=1&amp;OrganizerTypeUrl=sinema&amp;lang=tr&amp;a_aid=&amp;a_bid=&amp;cinemaId=5717&amp;Region=tr-tr&amp;SiteId=0" target="_blank" rel="noopener noreferrer">
         <span class="date"><span class="day">15</span><span class="month">Kasım</span><span class="weekday">Pazar</span></span><span class="info"><span class="time">14:30</span><span class="venue">İstanbul Bakırköy World CineZone (Marmara Forum)</span></span><span class="cta">Bilet al ↗</span></a></li>
-      <li><a href="https://www.biletiva.com/place/CINEMA_NEOMARIN" target="_blank" rel="noopener noreferrer">
+      <li data-city="istanbul"><a href="https://www.biletiva.com/place/CINEMA_NEOMARIN" target="_blank" rel="noopener noreferrer">
         <span class="date"><span class="day">15</span><span class="month">Kasım</span><span class="weekday">Pazar</span></span><span class="info"><span class="time">18:00</span><span class="venue">İstanbul Pendik Cinemaximum Neomarin</span></span><span class="cta">Bilet al ↗</span></a></li>
-      <li><a href="https://www.biletiva.com/place/EDREMIT_CINEMARINE" target="_blank" rel="noopener noreferrer">
+      <li data-city="balikesir"><a href="https://www.biletiva.com/place/EDREMIT_CINEMARINE" target="_blank" rel="noopener noreferrer">
         <span class="date"><span class="day">18</span><span class="month">Kasım</span><span class="weekday">Çarşamba</span></span><span class="info"><span class="time">15:05</span><span class="venue">Balıkesir Edremit Cinemarine (Novada)</span></span><span class="cta">Bilet al ↗</span></a></li>
-      <li><a href="https://www.paribucineverse.com/biletleme/~step~ticket~code~0000000050~session~350222" target="_blank" rel="noopener noreferrer">
+      <li data-city="izmir"><a href="https://www.paribucineverse.com/biletleme/~step~ticket~code~0000000050~session~350222" target="_blank" rel="noopener noreferrer">
         <span class="date"><span class="day">18</span><span class="month">Kasım</span><span class="weekday">Çarşamba</span></span><span class="info"><span class="time">18:45</span><span class="venue">İzmir Gaziemir Paribu Cineverse (Optimum)</span></span><span class="cta">Bilet al ↗</span></a></li>
     </ul>
   </main>
+  <script>
+    const select = document.getElementById("city");
+    const items = [...document.querySelectorAll(".links li")];
+    select.addEventListener("change", () => {
+      items.forEach((li) => { li.hidden = !!select.value && li.dataset.city !== select.value; });
+    });
+  </script>
 </body>
 </html>
