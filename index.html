@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100d0d">
+  <meta name="description" content="Oyunculu gösterim bilet bağlantıları.">
+  <title>Oyunculu Gösterim</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --cream: #fff8ed;
+      --muted: #d2c9bd;
+      --gold: #f0bd74;
+      --line: rgba(255, 248, 237, .2);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      color: var(--cream);
+      background-color: #100d0d;
+      background-image:
+        linear-gradient(180deg, rgba(10, 8, 8, .55) 0%, rgba(10, 8, 8, .78) 40%, rgba(10, 8, 8, .94) 100%),
+        url("./cinema-seats-bg.jpg");
+      background-position: center top;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      font-family: Inter, Aptos, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.5;
+    }
+
+    main { width: min(640px, calc(100% - 32px)); margin: 0 auto; padding: 56px 0 72px; }
+
+    h1 {
+      margin: 0 0 32px;
+      font-size: clamp(36px, 8vw, 56px);
+      font-weight: 720;
+      letter-spacing: -.05em;
+      line-height: 1.05;
+      text-align: center;
+      text-shadow: 0 3px 28px rgba(0, 0, 0, .55);
+    }
+
+    h1 span { color: var(--gold); }
+
+    .links { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+
+    .links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(17, 14, 14, .8);
+      backdrop-filter: blur(8px);
+      color: inherit;
+      text-decoration: none;
+      transition: border-color .2s ease, background .2s ease, transform .2s ease;
+    }
+
+    .links a:hover { border-color: rgba(240, 189, 116, .8); background: rgba(30, 22, 18, .9); transform: translateY(-1px); }
+    .links a:focus-visible { outline: 3px solid #ffe1b5; outline-offset: 3px; }
+
+    .info { display: grid; gap: 2px; min-width: 0; }
+    .when { color: var(--gold); font-size: 12px; font-weight: 800; letter-spacing: .04em; }
+    .venue { font-size: 16px; font-weight: 650; }
+
+    .cta {
+      flex: 0 0 auto;
+      padding: 8px 12px;
+      border: 1px solid rgba(240, 189, 116, .72);
+      border-radius: 6px;
+      color: #ffdbab;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .links a:hover .cta { background: var(--gold); color: #24170e; }
+
+    @media (max-width: 480px) {
+      main { padding-top: 40px; }
+      .links a { padding: 14px; }
+      .venue { font-size: 15px; }
+      body { background-attachment: scroll; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Oyunculu <span>Gösterim</span></h1>
+
+    <ul class="links">
+      <li><a href="https://biletinial.com/tr-tr/WebLogin?seanceId=18899451&amp;organizerType=1&amp;OrganizerTypeUrl=sinema&amp;lang=tr&amp;a_aid=&amp;a_bid=&amp;cinemaId=13&amp;Region=tr-tr&amp;SiteId=0" target="_blank" rel="noopener noreferrer">
+        <span class="info"><span class="when">13 Kasım Cuma · 19:20</span><span class="venue">Bursa Cinetech (Zafer Plaza)</span></span><span class="cta">Bilet al ↗</span></a></li>
+      <li><a href="https://www.paribucineverse.com/biletleme/~step~ticket~code~0000000004~session~229689" target="_blank" rel="noopener noreferrer">
+        <span class="info"><span class="when">14 Kasım Cumartesi · 16:10</span><span class="venue">Ankara Paribu Cineverse (Ankamall)</span></span><span class="cta">Bilet al ↗</span></a></li>
+      <li><a href="https://biletinial.com/tr-tr/WebLogin?seanceId=18878715&amp;organizerType=1&amp;OrganizerTypeUrl=sinema&amp;lang=tr&amp;a_aid=&amp;a_bid=&amp;cinemaId=1&amp;Region=tr-tr&amp;SiteId=0" target="_blank" rel="noopener noreferrer">
+        <span class="info"><span class="when">14 Kasım Cumartesi · 19:00</span><span class="venue">Ankara Prestige (Nata Vega)</span></span><span class="cta">Bilet al ↗</span></a></li>
+      <li><a href="https://biletinial.com/tr-tr/WebLogin?seanceId=18878283&amp;organizerType=1&amp;OrganizerTypeUrl=sinema&amp;lang=tr&amp;a_aid=&amp;a_bid=&amp;cinemaId=5717&amp;Region=tr-tr&amp;SiteId=0" target="_blank" rel="noopener noreferrer">
+        <span class="info"><span class="when">15 Kasım Pazar · 14:30</span><span class="venue">İstanbul Bakırköy World CineZone (Marmara Forum)</span></span><span class="cta">Bilet al ↗</span></a></li>
+      <li><a href="https://www.biletiva.com/place/CINEMA_NEOMARIN" target="_blank" rel="noopener noreferrer">
+        <span class="info"><span class="when">15 Kasım Pazar · 18:00</span><span class="venue">İstanbul Pendik Cinemaximum Neomarin</span></span><span class="cta">Bilet al ↗</span></a></li>
+      <li><a href="https://www.biletiva.com/place/EDREMIT_CINEMARINE" target="_blank" rel="noopener noreferrer">
+        <span class="info"><span class="when">18 Kasım Çarşamba · 15:05</span><span class="venue">Balıkesir Edremit Cinemarine (Novada)</span></span><span class="cta">Bilet al ↗</span></a></li>
+      <li><a href="https://www.paribucineverse.com/biletleme/~step~ticket~code~0000000050~session~350222" target="_blank" rel="noopener noreferrer">
+        <span class="info"><span class="when">18 Kasım Çarşamba · 18:45</span><span class="venue">İzmir Gaziemir Paribu Cineverse (Optimum)</span></span><span class="cta">Bilet al ↗</span></a></li>
+    </ul>
+  </main>
+</body>
+</html>
