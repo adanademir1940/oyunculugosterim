@@ -53,9 +53,8 @@
     .links a {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       gap: 16px;
-      padding: 16px 18px;
+      padding: 12px 16px 12px 12px;
       border: 1px solid var(--line);
       border-radius: 10px;
       background: rgba(17, 14, 14, .8);
@@ -68,8 +67,25 @@
     .links a:hover { border-color: rgba(240, 189, 116, .8); background: rgba(30, 22, 18, .9); transform: translateY(-1px); }
     .links a:focus-visible { outline: 3px solid #ffe1b5; outline-offset: 3px; }
 
-    .info { display: grid; gap: 2px; min-width: 0; }
-    .when { color: var(--gold); font-size: 12px; font-weight: 800; letter-spacing: .04em; }
+    .date {
+      display: grid;
+      flex: 0 0 auto;
+      width: 76px;
+      place-items: center;
+      align-self: stretch;
+      padding: 8px 4px;
+      border-radius: 8px;
+      background: var(--gold);
+      color: #1c120b;
+      line-height: 1;
+      text-align: center;
+    }
+    .day { font-size: 32px; font-weight: 850; letter-spacing: -.04em; }
+    .month { margin-top: 4px; font-size: 12px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+    .weekday { margin-top: 3px; font-size: 11px; font-weight: 700; opacity: .8; }
+
+    .info { display: grid; flex: 1 1 auto; gap: 3px; min-width: 0; }
+    .time { color: var(--gold); font-size: 18px; font-weight: 850; letter-spacing: .02em; }
     .venue { font-size: 16px; font-weight: 650; }
 
     .cta {
@@ -87,7 +103,11 @@
 
     @media (max-width: 480px) {
       main { padding-top: 40px; }
-      .links a { padding: 14px; }
+      .links a { gap: 12px; padding: 10px 12px 10px 10px; }
+      .date { width: 68px; }
+      .weekday { font-size: 10px; }
+      .day { font-size: 28px; }
+      .cta { padding: 8px 9px; }
       .venue { font-size: 15px; }
       body { background-attachment: scroll; }
     }
@@ -99,19 +119,19 @@
 
     <ul class="links">
       <li><a href="https://biletinial.com/tr-tr/WebLogin?seanceId=18899451&amp;organizerType=1&amp;OrganizerTypeUrl=sinema&amp;lang=tr&amp;a_aid=&amp;a_bid=&amp;cinemaId=13&amp;Region=tr-tr&amp;SiteId=0" target="_blank" rel="noopener noreferrer">
-        <span class="info"><span class="when">13 Kasım Cuma · 19:20</span><span class="venue">Bursa Cinetech (Zafer Plaza)</span></span><span class="cta">Bilet al ↗</span></a></li>
+        <span class="date"><span class="day">13</span><span class="month">Kasım</span><span class="weekday">Cuma</span></span><span class="info"><span class="time">19:20</span><span class="venue">Bursa Cinetech (Zafer Plaza)</span></span><span class="cta">Bilet al ↗</span></a></li>
       <li><a href="https://www.paribucineverse.com/biletleme/~step~ticket~code~0000000004~session~229689" target="_blank" rel="noopener noreferrer">
-        <span class="info"><span class="when">14 Kasım Cumartesi · 16:10</span><span class="venue">Ankara Paribu Cineverse (Ankamall)</span></span><span class="cta">Bilet al ↗</span></a></li>
+        <span class="date"><span class="day">14</span><span class="month">Kasım</span><span class="weekday">Cumartesi</span></span><span class="info"><span class="time">16:10</span><span class="venue">Ankara Paribu Cineverse (Ankamall)</span></span><span class="cta">Bilet al ↗</span></a></li>
       <li><a href="https://biletinial.com/tr-tr/WebLogin?seanceId=18878715&amp;organizerType=1&amp;OrganizerTypeUrl=sinema&amp;lang=tr&amp;a_aid=&amp;a_bid=&amp;cinemaId=1&amp;Region=tr-tr&amp;SiteId=0" target="_blank" rel="noopener noreferrer">
-        <span class="info"><span class="when">14 Kasım Cumartesi · 19:00</span><span class="venue">Ankara Prestige (Nata Vega)</span></span><span class="cta">Bilet al ↗</span></a></li>
+        <span class="date"><span class="day">14</span><span class="month">Kasım</span><span class="weekday">Cumartesi</span></span><span class="info"><span class="time">19:00</span><span class="venue">Ankara Prestige (Nata Vega)</span></span><span class="cta">Bilet al ↗</span></a></li>
       <li><a href="https://biletinial.com/tr-tr/WebLogin?seanceId=18878283&amp;organizerType=1&amp;OrganizerTypeUrl=sinema&amp;lang=tr&amp;a_aid=&amp;a_bid=&amp;cinemaId=5717&amp;Region=tr-tr&amp;SiteId=0" target="_blank" rel="noopener noreferrer">
-        <span class="info"><span class="when">15 Kasım Pazar · 14:30</span><span class="venue">İstanbul Bakırköy World CineZone (Marmara Forum)</span></span><span class="cta">Bilet al ↗</span></a></li>
+        <span class="date"><span class="day">15</span><span class="month">Kasım</span><span class="weekday">Pazar</span></span><span class="info"><span class="time">14:30</span><span class="venue">İstanbul Bakırköy World CineZone (Marmara Forum)</span></span><span class="cta">Bilet al ↗</span></a></li>
       <li><a href="https://www.biletiva.com/place/CINEMA_NEOMARIN" target="_blank" rel="noopener noreferrer">
-        <span class="info"><span class="when">15 Kasım Pazar · 18:00</span><span class="venue">İstanbul Pendik Cinemaximum Neomarin</span></span><span class="cta">Bilet al ↗</span></a></li>
+        <span class="date"><span class="day">15</span><span class="month">Kasım</span><span class="weekday">Pazar</span></span><span class="info"><span class="time">18:00</span><span class="venue">İstanbul Pendik Cinemaximum Neomarin</span></span><span class="cta">Bilet al ↗</span></a></li>
       <li><a href="https://www.biletiva.com/place/EDREMIT_CINEMARINE" target="_blank" rel="noopener noreferrer">
-        <span class="info"><span class="when">18 Kasım Çarşamba · 15:05</span><span class="venue">Balıkesir Edremit Cinemarine (Novada)</span></span><span class="cta">Bilet al ↗</span></a></li>
+        <span class="date"><span class="day">18</span><span class="month">Kasım</span><span class="weekday">Çarşamba</span></span><span class="info"><span class="time">15:05</span><span class="venue">Balıkesir Edremit Cinemarine (Novada)</span></span><span class="cta">Bilet al ↗</span></a></li>
       <li><a href="https://www.paribucineverse.com/biletleme/~step~ticket~code~0000000050~session~350222" target="_blank" rel="noopener noreferrer">
-        <span class="info"><span class="when">18 Kasım Çarşamba · 18:45</span><span class="venue">İzmir Gaziemir Paribu Cineverse (Optimum)</span></span><span class="cta">Bilet al ↗</span></a></li>
+        <span class="date"><span class="day">18</span><span class="month">Kasım</span><span class="weekday">Çarşamba</span></span><span class="info"><span class="time">18:45</span><span class="venue">İzmir Gaziemir Paribu Cineverse (Optimum)</span></span><span class="cta">Bilet al ↗</span></a></li>
     </ul>
   </main>
 </body>
