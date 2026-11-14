@@ -84,7 +84,8 @@
 
     .links { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
 
-    .links a {
+    .links a,
+    .links .card {
       display: flex;
       align-items: center;
       gap: 16px;
@@ -122,6 +123,7 @@
     .info { display: grid; flex: 1 1 auto; gap: 3px; min-width: 0; }
     .time { color: var(--gold); font-size: 18px; font-weight: 850; letter-spacing: .02em; }
     .venue { font-size: 16px; font-weight: 650; }
+    .soon .cta { border-style: dashed; color: var(--muted); cursor: default; }
     .note { margin-top: 4px; padding: 6px 9px; border-left: 3px solid var(--gold); border-radius: 4px; background: rgba(240, 189, 116, .12); color: #ffe7c4; font-size: 13px; font-weight: 600; line-height: 1.4; }
 
     .cta {
@@ -161,6 +163,8 @@
         <option value="istanbul">İstanbul</option>
         <option value="balikesir">Balıkesir</option>
         <option value="izmir">İzmir</option>
+        <option value="adana">Adana</option>
+        <option value="mersin">Mersin</option>
       </select>
     </div>
 
@@ -175,6 +179,12 @@
         <span class="date"><span class="day">18</span><span class="month">Kasım</span><span class="weekday">Çarşamba</span></span><span class="info"><span class="time">15:05</span><span class="venue">Balıkesir Edremit Cinemarine (Novada)</span><span class="note">Salon dolduğu için yeni salon eklenmiştir. Linkten bilet alabilirsiniz.</span></span><span class="cta">Bilet al ↗</span></a></li>
       <li data-city="izmir"><a href="https://www.paribucineverse.com/biletleme/~step~ticket~code~0000000050~session~350222" target="_blank" rel="noopener noreferrer">
         <span class="date"><span class="day">18</span><span class="month">Kasım</span><span class="weekday">Çarşamba</span></span><span class="info"><span class="time">18:45</span><span class="venue">İzmir Gaziemir Paribu Cineverse (Optimum)</span></span><span class="cta">Bilet al ↗</span></a></li>
+      <li data-city="mersin"><div class="card soon">
+        <span class="date"><span class="day">21</span><span class="month">Kasım</span><span class="weekday">Cumartesi</span></span><span class="info"><span class="time">14:15</span><span class="venue">Mersin Sayapark Cinens</span><span class="note">Seans belli, link güncellenecek.</span></span><span class="cta">Link yakında</span></div></li>
+      <li data-city="adana"><div class="card soon">
+        <span class="date"><span class="day">21</span><span class="month">Kasım</span><span class="weekday">Cumartesi</span></span><span class="info"><span class="time">16:15</span><span class="venue">Adana 01 Burda AVM CinemaPink</span><span class="note">Seans belli, link güncellenecek.</span></span><span class="cta">Link yakında</span></div></li>
+      <li data-city="adana"><div class="card soon">
+        <span class="date"><span class="day">21</span><span class="month">Kasım</span><span class="weekday">Cumartesi</span></span><span class="info"><span class="time">18:45</span><span class="venue">Adana Optimum AVM Avşar Sinemaları</span><span class="note">Seans belli, link güncellenecek.</span></span><span class="cta">Link yakında</span></div></li>
     </ul>
   </main>
   <script>
