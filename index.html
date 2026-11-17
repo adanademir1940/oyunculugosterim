@@ -48,6 +48,39 @@
 
     h1 span { color: var(--gold); }
 
+    .hero {
+      position: relative;
+      margin: 0 0 22px;
+      overflow: hidden;
+      border: 1px solid rgba(240, 189, 116, .45);
+      border-radius: 16px;
+      box-shadow: 0 22px 60px rgba(0, 0, 0, .4);
+      background: #1a1411;
+    }
+    .hero img { display: block; width: 100%; height: auto; aspect-ratio: 1350 / 700; object-fit: cover; }
+    .hero figcaption {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 48px 18px 16px;
+      background: linear-gradient(180deg, rgba(10, 8, 8, 0) 0%, rgba(10, 8, 8, .82) 70%);
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #1c120b;
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .hero-tag::before { width: 6px; height: 6px; border-radius: 50%; background: #c0392b; box-shadow: 0 0 0 3px rgba(192, 57, 43, .25); content: ""; }
+    .hero-text { display: block; color: #fff8ed; font-size: 17px; font-weight: 750; line-height: 1.35; text-shadow: 0 2px 12px rgba(0, 0, 0, .6); }
+
     .links { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
 
     .links a,
@@ -156,6 +189,8 @@
       .day { font-size: 28px; }
       .cta { padding: 8px 9px; }
       .venue { font-size: 15px; }
+      .hero figcaption { position: static; padding: 12px 14px 14px; background: linear-gradient(180deg, rgba(40, 28, 20, .95), rgba(17, 14, 14, .95)); }
+      .hero-text { font-size: 15px; }
       .imdb { flex-wrap: wrap; gap: 12px; padding: 14px; }
       .imdb-text { flex-basis: calc(100% - 90px); }
       .imdb-cta { width: 100%; padding: 11px; text-align: center; font-size: 14px; }
@@ -166,6 +201,14 @@
 <body>
   <main>
     <h1>Oyunculu <span>Gösterim</span></h1>
+
+    <figure class="hero">
+      <img src="./oyuncular.jpg" width="720" height="373" alt="Mahsun Karaca ve Murat Onur Öner, Ben Sana İnanıyorum filminden bir sahnede">
+      <figcaption>
+        <span class="hero-tag">Salonlardayız</span>
+        <span class="hero-text">Mahsun Karaca ve Murat Onur Öner oyunculu gösterimlerde seyirciyle buluşuyor.</span>
+      </figcaption>
+    </figure>
 
     <ul class="links">
       <li><a href="https://www.biletiva.com/place/EDREMIT_CINEMARINE" target="_blank" rel="noopener noreferrer">
