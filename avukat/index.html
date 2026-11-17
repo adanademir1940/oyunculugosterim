@@ -237,22 +237,20 @@
 
   <script>
     const ANSWERS = [
-      "Dosyanı inceledim. Hukuken durum net: Bu dertleri en iyi sinema salonunda unutursun. Takma, ben sana inanıyorum.",
-      "Bu iş uzun sürer. Sen en iyisi biletini al, filme git. Gerisini takma, ben sana inanıyorum.",
-      "Duruşma ertelendi. Bu arada boş vaktin var: Ben Sana İnanıyorum vizyonda. Ben sana inanıyorum.",
-      "Avukatın olarak tavsiyem: Mısırını al, salona gir, her şeyi unut. Ben sana inanıyorum.",
-      "Yasal hakların saklı. Ama önce filme git, kafan dağılsın. Takma, ben sana inanıyorum.",
-      "Emsal karar var: Filmi izleyen herkes rahatlamış. Sen de izle, ben sana inanıyorum.",
-      "Bu sorunun cevabı sinema salonunda. Bilet al, gel. Ben sana inanıyorum.",
-      "İtiraz hakkın var ama ben sana itiraz etmeni değil, filme gitmeni öneriyorum. Takma, ben sana inanıyorum.",
-      "Delil yetersiz, kahkaha yeterli. Önce Ben Sana İnanıyorum'u izle, sonra konuşuruz. Ben sana inanıyorum.",
-      "Karşı tarafın avukatıyla görüştüm. O da filme gidiyormuş. Sen de git, takma. Ben sana inanıyorum.",
-      "Vekâletini aldım. İlk talimatım: Bu hafta sonu sinemaya git. Ben sana inanıyorum.",
-      "Kanun açık: Dert edilen her şey, iyi bir filmden sonra küçülür. Biletini al, ben sana inanıyorum.",
-      "Bu konuda içtihat oluşmadı ama benim kanaatim net: Önce filme git, sonra düşünürsün. Ben sana inanıyorum.",
-      "Sulh yolunu öneriyorum: Karşı tarafı da al, birlikte filme gidin. Ben sana inanıyorum.",
-      "Zamanaşımı dolmadan yapman gereken tek şey var: Ben Sana İnanıyorum'u vizyondan kalkmadan izlemek. Ben sana inanıyorum.",
-      "Mahkeme kararını verdi: Bir bilet, bir mısır, iki saat kahkaha. Hükmü uygula, ben sana inanıyorum."
+      "Bu mesele telefonda, mesajla çözülmez. Yüz yüze konuşalım. Aşağıdan sana uygun seansı seç, salonda görüşelim. Ben sana inanıyorum.",
+      "Dosyan hassas, burada yazışmayalım. Gel yüz yüze konuşalım; seansını seç, sinemada buluşalım. Ben sana inanıyorum.",
+      "Bunu ayaküstü konuşamayız. Seanslara bak, bir gün belirle, salonda oturup konuşalım. Ben sana inanıyorum.",
+      "Avukat–müvekkil gizliliği gereği bu konuyu yüz yüze görüşmemiz lazım. Randevu yerimiz sinema; seansını aşağıdan seç. Ben sana inanıyorum.",
+      "Anlattıkların önemli ama ben gözlerinin içine bakarak dinlemek isterim. Seansını seç, filmde yüz yüze konuşalım. Ben sana inanıyorum.",
+      "Bu kadar ciddi bir konuyu yazıyla geçiştirmeyelim. Aşağıdaki butondan seansına bak, gel yüz yüze konuşalım. Ben sana inanıyorum.",
+      "Hukuki görüşümü yazılı vermem, yüz yüze söylerim. Nerede mi? Sinemada. Seansını seç, bekliyorum. Ben sana inanıyorum.",
+      "Ofisim şu an sinema salonu. Gel, yüz yüze konuşalım; sana uygun seansı aşağıdan seç. Ben sana inanıyorum.",
+      "Bu dosyayı masaya yatırmamız lazım ama masa yok, koltuk var. Seansını seç, yüz yüze konuşalım. Ben sana inanıyorum.",
+      "Mesajla olmaz bu iş. Bir bilet al, gel, filmden sonra yüz yüze konuşuruz. Seanslar aşağıda. Ben sana inanıyorum.",
+      "Seni anlıyorum ama bunu ekrandan değil, yüz yüze konuşalım. İlk görüşmemiz sinemada olsun; seansını seç. Ben sana inanıyorum.",
+      "Delilleri yüz yüze incelememiz gerek. Buluşma noktası: sinema. Aşağıdan seansını seç, oradayım. Ben sana inanıyorum.",
+      "Bu kadar derdi bir mesaja sığdırma. Gel, yüz yüze konuşalım; seanslara bak, sana en yakın salonu seç. Ben sana inanıyorum.",
+      "Önce bir yüz yüze görüşme yapalım, sonra yol haritamızı çizeriz. Görüşme yeri sinema; seansını seç. Ben sana inanıyorum."
     ];
     let last = -1;
     function pickAnswer() {
@@ -320,7 +318,7 @@
             const go = document.createElement("a");
             go.className = "go";
             go.href = "/";
-            go.textContent = "🎟 Seansları gör →";
+            go.textContent = "🎟 Seansını seç →";
             b.append(go);
             busy = false;
             send.disabled = !q.value.trim();
