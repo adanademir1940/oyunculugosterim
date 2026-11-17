@@ -48,6 +48,34 @@
 
     h1 span { color: var(--gold); }
 
+    .gise {
+      position: relative;
+      margin: -8px 0 26px;
+      padding: 18px 20px 20px;
+      overflow: hidden;
+      border: 1px solid rgba(240, 189, 116, .6);
+      border-radius: 14px;
+      background: linear-gradient(120deg, rgba(52, 36, 22, .92), rgba(17, 14, 14, .9));
+      box-shadow: 0 18px 50px rgba(0, 0, 0, .3);
+      text-align: center;
+      animation: gise-in .6s ease both;
+    }
+    .gise-label { margin: 0; color: var(--gold); font-size: 11px; font-weight: 850; letter-spacing: .2em; text-transform: uppercase; }
+    .gise-num {
+      display: block;
+      margin: 4px 0 2px;
+      color: #fff3df;
+      font-size: clamp(44px, 12vw, 68px);
+      font-weight: 850;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -.03em;
+      line-height: 1.05;
+      text-shadow: 0 0 28px rgba(240, 189, 116, .35);
+    }
+    .gise-sub { margin: 0; color: var(--muted); font-size: 14px; font-weight: 600; }
+    @keyframes gise-in { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .gise { animation: none; } }
+
     .links { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
 
     .links a,
@@ -167,6 +195,12 @@
   <main>
     <h1>Oyunculu <span>Gösterim</span></h1>
 
+    <section class="gise" aria-label="Gişe">
+      <p class="gise-label">Gişe · Seyirci sayısı</p>
+      <span class="gise-num" id="gise" data-value="125788">125.788</span>
+      <p class="gise-sub">kişi Ben Sana İnanıyorum'u izledi</p>
+    </section>
+
     <ul class="links">
       <li><a href="https://www.biletiva.com/place/EDREMIT_CINEMARINE" target="_blank" rel="noopener noreferrer">
         <span class="date"><span class="day">18</span><span class="month">Kasım</span><span class="weekday">Çarşamba</span></span><span class="info"><span class="time">15:05</span><span class="venue">Balıkesir Edremit Cinemarine (Novada)</span><span class="note">Salon dolduğu için yeni salon eklenmiştir. Linkten bilet alabilirsiniz.</span></span><span class="cta">Bilet al ↗</span></a></li>
@@ -189,5 +223,22 @@
       <span class="imdb-cta">IMDb'de puanla ↗</span>
     </a>
   </main>
+  <script>
+    (function () {
+      const el = document.getElementById("gise");
+      const target = Number(el.dataset.value);
+      const fmt = (n) => n.toLocaleString("tr-TR");
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { el.textContent = fmt(target); return; }
+      const dur = 2200, start = performance.now();
+      el.textContent = "0";
+      function step(now) {
+        const t = Math.min((now - start) / dur, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = fmt(Math.round(target * eased));
+        if (t < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    })();
+  </script>
 </body>
 </html>
