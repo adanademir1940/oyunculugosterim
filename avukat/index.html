@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#100d0d">
-  <meta name="description" content="Avukat Mahsun'a sor: her derde tek cevap.">
+  <meta name="description" content="Avukat Mahsun'a sor, hukuki görüşünü al.">
   <title>Avukat Mahsun'a Sor</title>
   <style>
     :root {
@@ -237,22 +237,25 @@
 
   <script>
     const ANSWERS = [
-      "Takma, siktir et. Ben sana inanıyorum.",
       "Dosyanı inceledim. Hukuken durum net: Bu dertleri en iyi sinema salonunda unutursun. Takma, ben sana inanıyorum.",
-      "Bu dava uzun sürer. Sen en iyisi biletini al, filme git. Gerisini siktir et, ben sana inanıyorum.",
-      "Duruşma ertelendi. Bu arada boş vaktin var: Ben Sana İnanıyorum vizyonda. Takma, ben sana inanıyorum.",
+      "Bu iş uzun sürer. Sen en iyisi biletini al, filme git. Gerisini takma, ben sana inanıyorum.",
+      "Duruşma ertelendi. Bu arada boş vaktin var: Ben Sana İnanıyorum vizyonda. Ben sana inanıyorum.",
       "Avukatın olarak tavsiyem: Mısırını al, salona gir, her şeyi unut. Ben sana inanıyorum.",
-      "Yasal hakların saklı. Ama önce filme git, kafan dağılsın. Siktir et, ben sana inanıyorum.",
-      "Emsal karar var: Filmi izleyen herkes rahatlamış. Takma, ben sana inanıyorum.",
+      "Yasal hakların saklı. Ama önce filme git, kafan dağılsın. Takma, ben sana inanıyorum.",
+      "Emsal karar var: Filmi izleyen herkes rahatlamış. Sen de izle, ben sana inanıyorum.",
       "Bu sorunun cevabı sinema salonunda. Bilet al, gel. Ben sana inanıyorum.",
       "İtiraz hakkın var ama ben sana itiraz etmeni değil, filme gitmeni öneriyorum. Takma, ben sana inanıyorum.",
       "Delil yetersiz, kahkaha yeterli. Önce Ben Sana İnanıyorum'u izle, sonra konuşuruz. Ben sana inanıyorum.",
-      "Karşı taraf avukatıyla görüştüm. O da filme gidiyormuş. Sen de git, takma. Ben sana inanıyorum.",
-      "Vekâletini aldım. İlk talimatım: Bu hafta sonu sinemaya git. Siktir et, ben sana inanıyorum."
+      "Karşı tarafın avukatıyla görüştüm. O da filme gidiyormuş. Sen de git, takma. Ben sana inanıyorum.",
+      "Vekâletini aldım. İlk talimatım: Bu hafta sonu sinemaya git. Ben sana inanıyorum.",
+      "Kanun açık: Dert edilen her şey, iyi bir filmden sonra küçülür. Biletini al, ben sana inanıyorum.",
+      "Bu konuda içtihat oluşmadı ama benim kanaatim net: Önce filme git, sonra düşünürsün. Ben sana inanıyorum.",
+      "Sulh yolunu öneriyorum: Karşı tarafı da al, birlikte filme gidin. Ben sana inanıyorum.",
+      "Zamanaşımı dolmadan yapman gereken tek şey var: Ben Sana İnanıyorum'u vizyondan kalkmadan izlemek. Ben sana inanıyorum.",
+      "Mahkeme kararını verdi: Bir bilet, bir mısır, iki saat kahkaha. Hükmü uygula, ben sana inanıyorum."
     ];
     let last = -1;
     function pickAnswer() {
-      if (last === -1) { last = 0; return ANSWERS[0]; }
       let i;
       do { i = Math.floor(Math.random() * ANSWERS.length); } while (i === last);
       last = i;
