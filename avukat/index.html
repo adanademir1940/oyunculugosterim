@@ -19,6 +19,7 @@
     * { box-sizing: border-box; }
 
     html, body { height: 100%; }
+    html { scroll-padding-top: 80px; scroll-padding-bottom: 120px; }
 
     body {
       display: flex;
@@ -133,7 +134,19 @@
       background: rgba(240, 189, 116, .16);
     }
     .bubble .label { display: block; margin-bottom: 3px; color: var(--gold); font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-    .verdict { font-size: 17px; font-weight: 750; }
+    .verdict { display: block; font-size: 17px; font-weight: 750; }
+    .go {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 7px 11px;
+      border: 1px solid rgba(240, 189, 116, .7);
+      border-radius: 8px;
+      color: #ffdbab;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .go:hover { background: var(--gold); color: #24170e; }
 
     .typing { display: inline-flex; gap: 4px; padding: 4px 2px; }
     .typing i { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); animation: blink 1.1s infinite ease-in-out; }
@@ -223,7 +236,28 @@
   </div>
 
   <script>
-    const ANSWER = "Takma, siktir et. Ben sana inanıyorum.";
+    const ANSWERS = [
+      "Takma, siktir et. Ben sana inanıyorum.",
+      "Dosyanı inceledim. Hukuken durum net: Bu dertleri en iyi sinema salonunda unutursun. Takma, ben sana inanıyorum.",
+      "Bu dava uzun sürer. Sen en iyisi biletini al, filme git. Gerisini siktir et, ben sana inanıyorum.",
+      "Duruşma ertelendi. Bu arada boş vaktin var: Ben Sana İnanıyorum vizyonda. Takma, ben sana inanıyorum.",
+      "Avukatın olarak tavsiyem: Mısırını al, salona gir, her şeyi unut. Ben sana inanıyorum.",
+      "Yasal hakların saklı. Ama önce filme git, kafan dağılsın. Siktir et, ben sana inanıyorum.",
+      "Emsal karar var: Filmi izleyen herkes rahatlamış. Takma, ben sana inanıyorum.",
+      "Bu sorunun cevabı sinema salonunda. Bilet al, gel. Ben sana inanıyorum.",
+      "İtiraz hakkın var ama ben sana itiraz etmeni değil, filme gitmeni öneriyorum. Takma, ben sana inanıyorum.",
+      "Delil yetersiz, kahkaha yeterli. Önce Ben Sana İnanıyorum'u izle, sonra konuşuruz. Ben sana inanıyorum.",
+      "Karşı taraf avukatıyla görüştüm. O da filme gidiyormuş. Sen de git, takma. Ben sana inanıyorum.",
+      "Vekâletini aldım. İlk talimatım: Bu hafta sonu sinemaya git. Siktir et, ben sana inanıyorum."
+    ];
+    let last = -1;
+    function pickAnswer() {
+      if (last === -1) { last = 0; return ANSWERS[0]; }
+      let i;
+      do { i = Math.floor(Math.random() * ANSWERS.length); } while (i === last);
+      last = i;
+      return ANSWERS[i];
+    }
     const chat = document.getElementById("chat");
     const form = document.getElementById("form");
     const q = document.getElementById("q");
@@ -274,11 +308,17 @@
         const v = document.createElement("span");
         v.className = "verdict";
         b.append(label, v);
+        const ANSWER = pickAnswer();
         let i = 0;
         const tick = setInterval(() => {
           v.textContent = ANSWER.slice(0, ++i);
           if (i >= ANSWER.length) {
             clearInterval(tick);
+            const go = document.createElement("a");
+            go.className = "go";
+            go.href = "/";
+            go.textContent = "🎟 Seansları gör →";
+            b.append(go);
             busy = false;
             send.disabled = !q.value.trim();
             b.closest(".msg").scrollIntoView({ behavior: "smooth", block: "end" });
