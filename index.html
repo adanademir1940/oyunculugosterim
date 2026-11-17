@@ -231,15 +231,23 @@
       const target = Number(el.dataset.value);
       const fmt = (n) => n.toLocaleString("tr-TR");
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { el.textContent = fmt(target); return; }
-      const dur = 2200, start = performance.now();
+      const dur = 2200;
       el.textContent = "0";
-      function step(now) {
-        const t = Math.min((now - start) / dur, 1);
-        const eased = 1 - Math.pow(1 - t, 3);
-        el.textContent = fmt(Math.round(target * eased));
-        if (t < 1) requestAnimationFrame(step);
+      function run() {
+        const start = performance.now();
+        function step(now) {
+          const t = Math.min((now - start) / dur, 1);
+          const eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = fmt(Math.round(target * eased));
+          if (t < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
       }
-      requestAnimationFrame(step);
+      if (!("IntersectionObserver" in window)) { run(); return; }
+      const io = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) { io.disconnect(); run(); }
+      }, { threshold: 0.4 });
+      io.observe(el);
     })();
   </script>
 </body>
