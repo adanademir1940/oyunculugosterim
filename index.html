@@ -48,40 +48,6 @@
 
     h1 span { color: var(--gold); }
 
-    .picker { position: relative; margin: 0 0 18px; }
-    .picker label { display: block; margin: 0 0 8px; color: var(--muted); font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
-    .picker select {
-      width: 100%;
-      min-height: 54px;
-      padding: 0 48px 0 18px;
-      border: 1px solid rgba(240, 189, 116, .7);
-      border-radius: 10px;
-      background: rgba(17, 14, 14, .88);
-      color: var(--cream);
-      font: inherit;
-      font-size: 17px;
-      font-weight: 700;
-      cursor: pointer;
-      appearance: none;
-      -webkit-appearance: none;
-      backdrop-filter: blur(8px);
-    }
-    .picker select:focus-visible { outline: 3px solid #ffe1b5; outline-offset: 3px; }
-    .picker option { background: #17120f; color: var(--cream); }
-    .picker::after {
-      position: absolute;
-      right: 20px;
-      bottom: 22px;
-      width: 9px;
-      height: 9px;
-      border-right: 2px solid var(--gold);
-      border-bottom: 2px solid var(--gold);
-      transform: rotate(45deg);
-      content: "";
-      pointer-events: none;
-    }
-    .links li[hidden] { display: none; }
-
     .links { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
 
     .links a,
@@ -126,6 +92,82 @@
     .soon .cta { border-style: dashed; color: var(--muted); cursor: default; }
     .note { margin-top: 4px; padding: 6px 9px; border-left: 3px solid var(--gold); border-radius: 4px; background: rgba(240, 189, 116, .12); color: #ffe7c4; font-size: 13px; font-weight: 600; line-height: 1.4; }
 
+    .imdb {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 28px;
+      padding: 18px;
+      border: 1px solid rgba(245, 197, 24, .55);
+      border-radius: 12px;
+      background: rgba(17, 14, 14, .85);
+      backdrop-filter: blur(8px);
+      color: inherit;
+      text-decoration: none;
+      transition: border-color .2s ease, transform .2s ease;
+    }
+    .imdb:hover { border-color: #f5c518; transform: translateY(-1px); }
+    .imdb:focus-visible { outline: 3px solid #ffe1b5; outline-offset: 3px; }
+    .imdb-logo {
+      flex: 0 0 auto;
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: #f5c518;
+      color: #000;
+      font-family: Impact, "Arial Black", "Helvetica Neue", Arial, sans-serif;
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -.02em;
+      line-height: 1;
+    }
+    .imdb-text { display: grid; flex: 1 1 auto; gap: 3px; min-width: 0; }
+    .imdb-title { font-size: 17px; font-weight: 800; }
+    .imdb-sub { color: var(--muted); font-size: 13px; line-height: 1.45; }
+    .imdb-stars { color: #f5c518; letter-spacing: .12em; }
+    .imdb-cta {
+      flex: 0 0 auto;
+      padding: 9px 12px;
+      border-radius: 6px;
+      background: #f5c518;
+      color: #000;
+      font-size: 12px;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .ask {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 12px;
+      padding: 16px 18px;
+      border: 1px solid rgba(240, 189, 116, .6);
+      border-radius: 12px;
+      background: linear-gradient(115deg, rgba(48, 33, 22, .9), rgba(17, 14, 14, .88));
+      backdrop-filter: blur(8px);
+      color: inherit;
+      text-decoration: none;
+      transition: border-color .2s ease, transform .2s ease;
+    }
+    .ask:hover { border-color: var(--gold); transform: translateY(-1px); }
+    .ask:focus-visible { outline: 3px solid #ffe1b5; outline-offset: 3px; }
+    .ask-avatar {
+      display: grid;
+      flex: 0 0 auto;
+      width: 46px;
+      height: 46px;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(140deg, #f7d29c, #c98f45);
+      color: #24170e;
+      font-size: 16px;
+      font-weight: 850;
+    }
+    .ask-text { display: grid; flex: 1 1 auto; gap: 2px; min-width: 0; }
+    .ask-title { font-size: 17px; font-weight: 800; }
+    .ask-sub { color: var(--muted); font-size: 13px; line-height: 1.4; }
+    .ask-cta { flex: 0 0 auto; color: var(--gold); font-size: 22px; font-weight: 800; }
+
     .cta {
       flex: 0 0 auto;
       padding: 8px 12px;
@@ -147,6 +189,9 @@
       .day { font-size: 28px; }
       .cta { padding: 8px 9px; }
       .venue { font-size: 15px; }
+      .imdb { flex-wrap: wrap; gap: 12px; padding: 14px; }
+      .imdb-text { flex-basis: calc(100% - 90px); }
+      .imdb-cta { width: 100%; padding: 11px; text-align: center; font-size: 14px; }
       body { background-attachment: scroll; }
     }
   </style>
@@ -155,36 +200,36 @@
   <main>
     <h1>Oyunculu <span>Gösterim</span></h1>
 
-    <div class="picker">
-      <label for="city">Şehir seç</label>
-      <select id="city">
-        <option value="">Tüm şehirler</option>
-        <option value="balikesir">Balıkesir</option>
-        <option value="izmir">İzmir</option>
-        <option value="adana">Adana</option>
-        <option value="mersin">Mersin</option>
-      </select>
-    </div>
-
     <ul class="links">
-      <li data-city="balikesir"><a href="https://www.biletiva.com/place/EDREMIT_CINEMARINE" target="_blank" rel="noopener noreferrer">
+      <li><a href="https://www.biletiva.com/place/EDREMIT_CINEMARINE" target="_blank" rel="noopener noreferrer">
         <span class="date"><span class="day">18</span><span class="month">Kasım</span><span class="weekday">Çarşamba</span></span><span class="info"><span class="time">15:05</span><span class="venue">Balıkesir Edremit Cinemarine (Novada)</span><span class="note">Salon dolduğu için yeni salon eklenmiştir. Linkten bilet alabilirsiniz.</span></span><span class="cta">Bilet al ↗</span></a></li>
-      <li data-city="izmir"><a href="https://www.paribucineverse.com/biletleme/~step~ticket~code~0000000050~session~350222" target="_blank" rel="noopener noreferrer">
+      <li><a href="https://www.paribucineverse.com/biletleme/~step~ticket~code~0000000050~session~350222" target="_blank" rel="noopener noreferrer">
         <span class="date"><span class="day">18</span><span class="month">Kasım</span><span class="weekday">Çarşamba</span></span><span class="info"><span class="time">18:45</span><span class="venue">İzmir Gaziemir Paribu Cineverse (Optimum)</span><span class="note">Salon dolduğu için yeni salon eklenmiştir. Linkten bilet alabilirsiniz.</span></span><span class="cta">Bilet al ↗</span></a></li>
-      <li data-city="mersin"><div class="card soon">
+      <li><div class="card soon">
         <span class="date"><span class="day">21</span><span class="month">Kasım</span><span class="weekday">Cumartesi</span></span><span class="info"><span class="time">14:15</span><span class="venue">Mersin Sayapark Cinens</span><span class="note">Salon doldu, yeni salon gelince link eklenecek.</span></span><span class="cta">Link yakında</span></div></li>
-      <li data-city="adana"><a href="https://www.biletiva.com/place/ADANA_01BURDA_CINEMAPINK" target="_blank" rel="noopener noreferrer">
+      <li><a href="https://www.biletiva.com/place/ADANA_01BURDA_CINEMAPINK" target="_blank" rel="noopener noreferrer">
         <span class="date"><span class="day">21</span><span class="month">Kasım</span><span class="weekday">Cumartesi</span></span><span class="info"><span class="time">16:15</span><span class="venue">Adana 01 Burda AVM CinemaPink</span></span><span class="cta">Bilet al ↗</span></a></li>
-      <li data-city="adana"><a href="https://biletinial.com/tr-tr/WebLogin?seanceId=18916361&amp;organizerType=1&amp;OrganizerTypeUrl=sinema&amp;lang=tr&amp;a_aid=&amp;a_bid=&amp;cinemaId=4&amp;Region=tr-tr&amp;SiteId=0" target="_blank" rel="noopener noreferrer">
+      <li><a href="https://biletinial.com/tr-tr/WebLogin?seanceId=18916361&amp;organizerType=1&amp;OrganizerTypeUrl=sinema&amp;lang=tr&amp;a_aid=&amp;a_bid=&amp;cinemaId=4&amp;Region=tr-tr&amp;SiteId=0" target="_blank" rel="noopener noreferrer">
         <span class="date"><span class="day">21</span><span class="month">Kasım</span><span class="weekday">Cumartesi</span></span><span class="info"><span class="time">18:45</span><span class="venue">Adana Optimum AVM Avşar Sinemaları</span></span><span class="cta">Bilet al ↗</span></a></li>
     </ul>
+
+    <a class="imdb" href="https://www.imdb.com/title/tt45162733/" target="_blank" rel="noopener noreferrer">
+      <span class="imdb-logo" aria-hidden="true">IMDb</span>
+      <span class="imdb-text">
+        <span class="imdb-title">Filmi izlediniz mi?</span>
+        <span class="imdb-sub"><span class="imdb-stars">★★★★★</span><br>IMDb'de puan verin, filmin daha çok kişiye ulaşmasına destek olun.</span>
+      </span>
+      <span class="imdb-cta">IMDb'de puanla ↗</span>
+    </a>
+
+    <a class="ask" href="/avukat">
+      <span class="ask-avatar" aria-hidden="true">AM</span>
+      <span class="ask-text">
+        <span class="ask-title">Av. Mahsun'a Sor</span>
+        <span class="ask-sub">Hukuki bir derdin mi var? Sor, Av. Mahsun yanıtlasın.</span>
+      </span>
+      <span class="ask-cta" aria-hidden="true">→</span>
+    </a>
   </main>
-  <script>
-    const select = document.getElementById("city");
-    const items = [...document.querySelectorAll(".links li")];
-    select.addEventListener("change", () => {
-      items.forEach((li) => { li.hidden = !!select.value && li.dataset.city !== select.value; });
-    });
-  </script>
 </body>
 </html>
