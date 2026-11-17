@@ -135,39 +135,6 @@
       white-space: nowrap;
     }
 
-    .ask {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-top: 12px;
-      padding: 16px 18px;
-      border: 1px solid rgba(240, 189, 116, .6);
-      border-radius: 12px;
-      background: linear-gradient(115deg, rgba(48, 33, 22, .9), rgba(17, 14, 14, .88));
-      backdrop-filter: blur(8px);
-      color: inherit;
-      text-decoration: none;
-      transition: border-color .2s ease, transform .2s ease;
-    }
-    .ask:hover { border-color: var(--gold); transform: translateY(-1px); }
-    .ask:focus-visible { outline: 3px solid #ffe1b5; outline-offset: 3px; }
-    .ask-avatar {
-      display: grid;
-      flex: 0 0 auto;
-      width: 46px;
-      height: 46px;
-      place-items: center;
-      border-radius: 50%;
-      background: linear-gradient(140deg, #f7d29c, #c98f45);
-      color: #24170e;
-      font-size: 16px;
-      font-weight: 850;
-    }
-    .ask-text { display: grid; flex: 1 1 auto; gap: 2px; min-width: 0; }
-    .ask-title { font-size: 17px; font-weight: 800; }
-    .ask-sub { color: var(--muted); font-size: 13px; line-height: 1.4; }
-    .ask-cta { flex: 0 0 auto; color: var(--gold); font-size: 22px; font-weight: 800; }
-
     .cta {
       flex: 0 0 auto;
       padding: 8px 12px;
@@ -220,15 +187,6 @@
         <span class="imdb-sub"><span class="imdb-stars">★★★★★</span><br>IMDb'de puan verin, filmin daha çok kişiye ulaşmasına destek olun.</span>
       </span>
       <span class="imdb-cta">IMDb'de puanla ↗</span>
-    </a>
-
-    <a class="ask" href="/avukat">
-      <span class="ask-avatar" aria-hidden="true">AM</span>
-      <span class="ask-text">
-        <span class="ask-title">Av. Mahsun'a Sor</span>
-        <span class="ask-sub">Hukuki bir derdin mi var? Sor, Av. Mahsun yanıtlasın.</span>
-      </span>
-      <span class="ask-cta" aria-hidden="true">→</span>
     </a>
   </main>
 </body>
